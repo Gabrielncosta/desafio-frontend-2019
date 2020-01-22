@@ -38,7 +38,7 @@
 <style lang="scss" scoped>
 
   .navbar-ow{
-    padding: 20px 0;
+    padding: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;

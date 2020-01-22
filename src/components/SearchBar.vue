@@ -1,10 +1,11 @@
 <template>
   <div class="navbar-ow">
     <div class="container shadow bg-white rounded container-navbar" style="height: 100px;">
-      <p class="produto">Encontre seu produto</p>
+      <p class="produto">Encontre seu produto
+      </p>
       <div class="elementos-navbar" style="width: 80%;">
       <form style="width: 100%;">
-       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pesquisar...">
+       <input type="email" :value="message" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pesquisar...">
       </form>
       <i class="fa fa-search icon"></i>
       </div>
@@ -14,7 +15,8 @@
 
 <script>
   export default{
-      name: 'Header'
+      name: 'SearchBar',
+      prop: ["message"],
   }
 </script>
 

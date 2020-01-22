@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-ow">
     <div class="container container-navbar">
-      <img class="logo" src="../assets/images/logo.png">
+      <img class="logo" src="../assets/images/logo-footer.png">
     </div>
   </div>
 </template>
