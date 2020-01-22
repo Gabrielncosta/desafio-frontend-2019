@@ -57,6 +57,7 @@
     font-size: 16px;
     color: #909090;
     margin-right: 20px;
+    font-family: "SourceSansPro-Black";
   }
 
   .elementos-navbar{

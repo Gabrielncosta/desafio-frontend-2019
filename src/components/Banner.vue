@@ -37,15 +37,6 @@
 
 
 <style lang="scss" scoped>
-  @font-face {
-    font-family: "SourceSansPro-Bold";
-    src: url("../assets/fonts/SourceSansPro-Black.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "SourceSansPro-Black";
-    src: url("../assets/fonts/SourceSansPro-Bold.ttf") format("truetype");
-  }
 
   .banner-1 {
     background: rgb(142,54,183);

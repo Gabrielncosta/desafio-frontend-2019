@@ -9,6 +9,23 @@
 </template>
 
 <style>
+
+@font-face {
+  font-family: "SourceSansPro-Bold";
+  src: url("./assets/fonts/SourceSansPro-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceSansPro-Black";
+  src: url("./assets/fonts/SourceSansPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceSansPro-Regular";
+  src: url("./assets/fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
