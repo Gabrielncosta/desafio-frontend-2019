@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 import produto from '../views/Produto.vue';
 import checkout from '../views/Checkout.vue';

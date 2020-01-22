@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-ow">
     <div class="container container-navbar">
-      <img class="logo" src="../assets/images/logo.png" alt="Logo Octoplay">
+      <img class="logo" src="../assets/images/logo.png" alt="logo">
       <div class="elementos-navbar">
         <a class="produtos" target="_blank">Produtos</a>
        <svg

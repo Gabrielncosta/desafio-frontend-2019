@@ -3,6 +3,7 @@
     <Header/>
     <Banner/>
     <search-bar/>
+    <list/>
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import Header from '@/components/Header.vue'
 import Banner from '@/components/Banner.vue'
 import SearchBar from '@/components/SearchBar.vue'
+import List from '@/components/List.vue'
 
 export default {
   name: 'home',
   components: {
     Header,
     Banner,
-    SearchBar
+    SearchBar,
+    List
   }
 }
 </script>
