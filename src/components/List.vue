@@ -6,7 +6,7 @@
       </p>
       <div class="elementos-navbar">
       <form>
-        <input type="text" v-model="search" class="form-control" placeholder="Pesquisar...">
+        <input type="text" v-on:input="filtered" v-model="search" class="form-control" placeholder="Pesquisar...">
       </form>
       <i class="fa fa-search icon"></i>
       </div>
@@ -14,12 +14,10 @@
   </div>
   
   <div class="container">
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-between rowbox">
     <div class="d-flex stretch" v-for="(produto, i) in filteredProducts" :key="i">
       <Product 
-        :picture="produto.picture"
-        :name="produto.name"
-        :price="produto.price"
+        :produto="produto"
       ></Product>
     </div>
     </div>
@@ -40,21 +38,31 @@
       },
       data: () => ({
         produtos: "",
+        filteredProducts: [],
         search: ""
       }),
       mounted() {
         axios.get("https://api.myjson.com/bins/9e9fl").then(response => {
             this.produtos = response.data;
+            this.filteredProducts = this.produtos;
         });
       },
-      computed: {
+      methods: {
+        filtered: function(){
+          this.filteredProducts = this.produtos.filter((produto) => {
+            let str = produto.name.toUpperCase();
+            let search = this.search.toUpperCase();
+            return str.match(search);
+        })
+      },
+     /*  computed: {
         filteredProducts: function(){
            return this.produtos.filter((produto) => {
             let str = produto.name.toUpperCase();
             let search = this.search.toUpperCase();
             return str.match(search);
           })
-        }
+        } */
       }
     }
 </script>
@@ -66,6 +74,10 @@
     padding-right: 0px;
     padding-left: 0px;
   }
+
+  /* .rowbox {
+    width: 100%;
+  } */
 
   .item {
     flex-grow: 1;
@@ -130,6 +142,7 @@
     border-radius: 4px;
     position: relative;
     right: 35px;
+    cursor: pointer;
   }
 
   @media (max-width: 550px){

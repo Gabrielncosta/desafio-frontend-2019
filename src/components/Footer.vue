@@ -18,6 +18,7 @@
   .navbar-ow{
     padding: 20px 0;
     display: flex;
+    height: 10vh;
     flex-direction: row;
     align-items: center;
     justify-content: center;

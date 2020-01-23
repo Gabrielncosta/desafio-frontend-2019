@@ -10,7 +10,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 
 Vue.config.productionTip = false
 
-new Vue({
+Vue.prototype.$eventBus = new Vue({
   router,
   store,
   render: h => h(App)

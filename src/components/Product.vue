@@ -1,21 +1,63 @@
 <template>
   <div class="d-flex box align-items-start shadow-lg mb-5 bg-white rounded">
     <div class="d-flex align-items-start p-4 grow">
-      <img :src="picture" class="img-fluid" alt="notebook image">
+      <img :src="produto.picture" class="img-fluid" alt="notebook image">
       <p class="purple bold">Eletrônicos</p>
-      <p class="bold grey text-left">{{ name }}</p>
+      <p class="bold grey text-left">{{ produto.name }}</p>
       <p class="text-left regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quaerat.</p>
-      <h6 class="bold grey">R${{ price }} </h6>
+      <h6 class="bold grey">R${{ produto.price }} </h6>
     </div>
-    <button class="btn btncustom mx-auto purple bold py-3">ADICIONAR AO CARRINHO</button>
+    <button class="btn btncustom mx-auto purple bold py-3" @click="submit">ADICIONAR AO CARRINHO</button>
   </div>
 </template>
 
 <script>
+import router from '../router'
 
   export default{
       name: 'Product',
-      props: [ 'picture', 'price', 'name'],
+      props: ['produto'],
+      data() {
+        return {
+          newProduct: [],
+        };
+      },
+ /*      mounted(){
+   
+      }, */
+      methods: {
+        changeRoute() {
+          router.push('/carrinho')
+        },
+        submit() {    
+          let productsJson = [];
+
+          if (localStorage.getItem('produtos')) {
+            try {
+              productsJson = JSON.parse(localStorage.getItem('produtos'));
+            }
+            catch(e) {
+              console.log('erro')
+            }
+          }
+        
+
+          productsJson.push(this.produto);
+          this.saveProducts(productsJson);
+
+          this.update();
+          /* this.productsJson.unshift({ name: this.name, price: this.price });
+          localStorage.setItem('produtos', JSON.stringify(this.productsJson)); */
+        },
+        saveProducts(products) {
+          const parsed = JSON.stringify(products);
+          localStorage.setItem('produtos', parsed);
+        },
+        update() {
+          this.$root.$emit('update');
+        }
+
+      }
   }
 </script>
 
@@ -60,10 +102,6 @@
     background-color: #8e36b7;
     color: #fff;
     border: none;
-  }
-
-  hr {
-    width: 100%;
   }
   
 </style>
