@@ -16,7 +16,7 @@ import List from '@/components/List.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
-  name: 'home',
+  name: 'Produto',
   components: {
     Header,
     Banner,

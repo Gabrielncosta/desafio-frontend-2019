@@ -4,9 +4,9 @@
     <div class="container shadow bg-white rounded container-navbar">
       <p class="produto">Encontre seu produto
       </p>
-      <div class="elementos-navbar" style="width: 80%;">
-      <form style="width: 100%;">
-       <input type="text" v-model="search" class="form-control" placeholder="Pesquisar...">
+      <div class="elementos-navbar">
+      <form>
+        <input type="text" v-model="search" class="form-control" placeholder="Pesquisar...">
       </form>
       <i class="fa fa-search icon"></i>
       </div>
@@ -45,7 +45,6 @@
       mounted() {
         axios.get("https://api.myjson.com/bins/9e9fl").then(response => {
             this.produtos = response.data;
-            console.log(this.produtos)
         });
       },
       computed: {
@@ -70,6 +69,10 @@
 
   .item {
     flex-grow: 1;
+  }
+
+  form {
+    width: 100%;
   }
 
   .stretch {
@@ -115,6 +118,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    width: 80%;
   }
 
   .icon {

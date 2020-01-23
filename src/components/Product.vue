@@ -1,13 +1,13 @@
 <template>
-  <div class="d-flex box align-items-start shadow-lg mb-5 bg-white rounded" style="flex-direction: column;">
-    <div class="d-flex align-items-start p-4" style="flex-direction: column; flex-grow: 1;">
-      <img :src="picture" class="img-fluid" alt="">
+  <div class="d-flex box align-items-start shadow-lg mb-5 bg-white rounded">
+    <div class="d-flex align-items-start p-4 grow">
+      <img :src="picture" class="img-fluid" alt="notebook image">
       <p class="purple bold">Eletrônicos</p>
       <p class="bold grey text-left">{{ name }}</p>
       <p class="text-left regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quaerat.</p>
       <h6 class="bold grey">R${{ price }} </h6>
     </div>
-    <button class="btn btncustom mx-auto purple bold py-3" style="width: 100%; height: 60px;">ADICIONAR AO CARRINHO</button>
+    <button class="btn btncustom mx-auto purple bold py-3">ADICIONAR AO CARRINHO</button>
   </div>
 </template>
 
@@ -28,6 +28,17 @@
   .btncustom {
     font-size: .9em;
     border-top: 1px solid black;
+    width: 100%; 
+    height: 60px;
+  }
+
+  .box {
+    flex-direction: column;
+  }
+
+  .grow {
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .bold {
