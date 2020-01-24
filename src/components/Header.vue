@@ -33,7 +33,6 @@
           let count = 0;
           for(let i in products) {
             count += products[i].quantity; 
-            console.log(products[i].quantity);
           }
           return count;
         }
@@ -52,23 +51,6 @@
           
         })
       },
-
-      
-/*       computed: {
-        itemsCarrinho: function() {
-          let number = JSON.parse(localStorage.getItem('produtos'));
-          let a = number.length;
-          return a;
-        }
-      },
-      methods() {
-        
-      } */
- /*      created() {
-        let number = JSON.parse(localStorage.getItem('produtos'));
-        this.itemsCarrinho = number.length;
-        console.log(number);
-      } */
   }
 </script>
 

@@ -33,6 +33,11 @@
     align-items: center;
   }
 
+  @media(max-width: 770px) {
+    .footer {
+      margin-top: 50px;
+    }
+  }
 
   @media (max-width: 550px){
     .logo{

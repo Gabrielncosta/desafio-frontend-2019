@@ -18,17 +18,18 @@
       </tbody>
     </table>
     </div>
-
-    
     <div class="navbar-ow">
       <div class="container container-navbar">
         <div class="d-flex flex-row align-items-center cursor" @click="ClearCart">
           <Garbage style="margin-bottom: 40px;" class="icon"/>
           <a class="produtos" target="_blank">Limpar Carrinho</a>
         </div>
-        <div class="elementos-navbar pointer" @click="RouteCart">
+        <div class="elementos-navbar pointer justify-content-around" @click="RouteCart">
           <div class="d-flex justify-content-end">
-            <button @click="RouteCheckout" type="submit" class="btn btn-primary btn-buy">Concluir compra</button>
+            <button @click="RouteBack" type="submit" class="btn btn-buy grey">Continuar comprando</button>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button @click="RouteCheckout" type="submit" class="btn btn-buy purple">Concluir compra</button>
           </div>
         </div>
       </div>
@@ -65,6 +66,9 @@
     methods: {
       RouteCheckout() {
         this.$router.push('/checkout');
+      },
+      RouteBack() {
+        this.$router.push('/');
       },
       ClearCart() {
         localStorage.clear();
@@ -156,14 +160,33 @@
     align-items: center;
   }
 
+  .grey {
+    background-color: #cfcfcf;
+    color: #434343;
+  }
+
   .btn-buy {
-    background-color: #8e36b7;
     font-family: 'SourceSansPro-Regular';
-    width: 300px;
+    width: 225px;
+    height: 6vh;
+    border-color: none !important; 
+  }
+
+  .purple {
+    border-color: #8e36b7;
+    background-color: #8e36b7;
+    color: #fff;
+    margin-left: 25px;
   }
 
   .cursor {
     cursor: pointer;
+  }
+
+  @media (max-width: 770px) {
+    .height {
+      height: auto;
+    }
   }
 
 </style>

@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary btn-buy">Concluir compra</button>
+        <button type="submit" class="btn btn-buy">Concluir compra</button>
       </div>
     </form>
   </div>
@@ -94,7 +94,6 @@
             this.estado = address.uf;
           })
           .catch(error => {
-          console.log(error)
           })
         }
     
@@ -116,6 +115,18 @@
   background-color: #8e36b7;
   font-family: 'SourceSansPro-Regular';
   width: 300px;
+  color: #fff;
+}
+
+@media (max-width: 770px) {
+  .height {
+    height: auto;
+  }
+
+  .btn-buy {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 </style>

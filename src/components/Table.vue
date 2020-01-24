@@ -8,7 +8,7 @@
       <p class="bold">{{ list.name }}</p>
     </td>
     <td>
-      <div class="input-group mb-3 mx-auto" style="width: 110px;">
+      <div class="input-group mb-3 mx-auto width">
         <div class="input-group-prepend">
           <span @click="subtraction" class="input-group-text btnwhite" id="basic-addon1">-</span>
         </div>
@@ -122,6 +122,10 @@
   .btnwhite {
     background-color: white;
     cursor: pointer;
+  }
+
+  .width {
+    width: 110px;
   }
 
   .padding {
