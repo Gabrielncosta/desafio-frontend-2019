@@ -22,13 +22,7 @@ import router from '../router'
           newProduct: [],
         };
       },
- /*      mounted(){
-   
-      }, */
       methods: {
-        changeRoute() {
-          router.push('/carrinho')
-        },
         submit() {    
           let productsJson = [];
 

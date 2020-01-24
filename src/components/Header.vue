@@ -1,13 +1,13 @@
 <template>
   <div class="navbar-ow">
     <div class="container container-navbar">
-      <img class="logo" src="../assets/images/logo.png" alt="logo">
-      <div class="elementos-navbar">
+      <img class="logo pointer" @click="RouteMain" src="../assets/images/logo.png" alt="logo">
+      <div class="elementos-navbar pointer" @click="RouteCart">
         <a class="produtos" target="_blank">Produtos</a>
         <Cart class="icon"/>
-        <span class="carrinho"> {{ name }} </span>
-          <!-- <input v-model="name"> -->
+        <span class="carrinho" >{{ cartNumber }} </span>
       </div>
+       
     </div>
   </div>
 </template>
@@ -20,7 +20,15 @@
       data() {
         return {
           items: 0,
-          name: ''
+          cartNumber: ''
+        }
+      },
+      methods: {
+        RouteCart() {
+          this.$router.push('/carrinho');
+        },
+        RouteMain() {
+          this.$router.push('/');
         }
       },
       components: {
@@ -29,15 +37,17 @@
       mounted() {
         if (localStorage.produtos) {
           let products = JSON.parse(localStorage.produtos);
-          this.name = products.length;
+          this.cartNumber = products.length;
           console.log(products);
         }
         this.$root.$on('update', () => {
           let products = JSON.parse(localStorage.produtos);
-          this.name = products.length;
+          this.cartNumber = products.length;
           
         })
       },
+
+      
 /*       computed: {
         itemsCarrinho: function() {
           let number = JSON.parse(localStorage.getItem('produtos'));
@@ -91,6 +101,18 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .carrinho {
+    background-color: #e31424 !important;
+    border-radius: 50%;
+    color: #fff;
+    width: 25px; 
+    font-family: "SourceSansPro-Black"; 
   }
 
   @media (max-width: 550px){

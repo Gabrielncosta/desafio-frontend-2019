@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-ow">
+  <div class="navbar-ow footer">
     <div class="container container-navbar">
       <img class="logo" src="../assets/images/logo-footer.png">
     </div>
@@ -18,12 +18,12 @@
   .navbar-ow{
     padding: 20px 0;
     display: flex;
-    height: 10vh;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     font-family: 'Nunito', regular;
     background-color: #bbbbbb;
+    height: 20vh;
   }
 
   .container{
