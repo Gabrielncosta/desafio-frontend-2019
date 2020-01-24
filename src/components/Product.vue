@@ -31,6 +31,7 @@ import router from '../router'
               productsJson = JSON.parse(localStorage.getItem('produtos'));
             }
             catch(e) {
+              let error = e;
             }
           }
         

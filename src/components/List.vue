@@ -145,6 +145,14 @@
     cursor: pointer;
   }
 
+  @media(max-width: 770px) {
+    .stretch {
+      width: 100%;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+
   @media (max-width: 550px){
     .logo{
       width: 30%;
