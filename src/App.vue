@@ -6,8 +6,13 @@
   </div>
 </template>
 
+<script>
+import Dinero from 'dinero.js'
+export default {
+  
+}
+</script>
 <style>
-
 @font-face {
   font-family: "SourceSansPro-Bold";
   src: url("./assets/fonts/SourceSansPro-Black.ttf") format("truetype");

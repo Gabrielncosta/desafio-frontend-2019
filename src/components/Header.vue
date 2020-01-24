@@ -7,7 +7,6 @@
         <Cart class="icon"/>
         <span class="carrinho" >{{ cartNumber }} </span>
       </div>
-       
     </div>
   </div>
 </template>
@@ -83,6 +82,7 @@
     align-items: center;
     justify-content: center;
     font-family: 'Nunito', regular;
+    height: 15vh;
   }
 
   .container{

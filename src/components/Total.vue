@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="container pt-5" style="height: 100%;">
+  <div class="height">
+    <div class="container pt-5">
     <table style="width: 100%;">
-      <thead style="border-bottom: 1px solid black; ">
-        <tr>
-          <th scope="col" style="width: 50px;"></th>
-          <th scope="col" style="width: 200px;">Produtos</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Valor Unitário</th>
-          <th scope="col">Total</th>  
+      <thead class="borderbottom">
+        <tr class="tr">
+          <th scope="col" class="col-1"></th>
+          <th class="category col-2" scope="col">Produtos</th>
+          <th class="category" scope="col">Quantidade</th>
+          <th class="category" scope="col">Valor Unitário</th>
+          <th class="category" scope="col">Total</th>  
         </tr>
       </thead>
       <tbody v-for="(item, i) in items" :key="i">
@@ -16,20 +16,35 @@
         :list="item"
         ></Table>
       </tbody>
-
     </table>
+    </div>
+
+    
+    <div class="navbar-ow">
+      <div class="container container-navbar">
+        <div class="d-flex flex-row align-items-center cursor" @click="ClearCart">
+          <Garbage style="margin-bottom: 40px;" class="icon"/>
+          <a class="produtos" target="_blank">Limpar Carrinho</a>
+        </div>
+        <div class="elementos-navbar pointer" @click="RouteCart">
+          <div class="d-flex justify-content-end">
+            <button @click="RouteCheckout" type="submit" class="btn btn-primary btn-buy">Concluir compra</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import Table from './Table.vue'
-
+  import Garbage from '../assets/svg/garbage.svg';
 
   export default{
     name: 'Total',
     components: {
       Table,
+      Garbage
     },
     data() {
       return {
@@ -47,8 +62,13 @@
         });
       }
     },
-    mounted() {
-      /* this.produtos = JSON.parse(localStorage.getItem('produtos')) */
+    methods: {
+      RouteCheckout() {
+        this.$router.push('/checkout');
+      },
+      ClearCart() {
+        localStorage.clear();
+      }
     }
   }
 </script>
@@ -58,6 +78,10 @@
 
   .purple {
     color: #8e36b7;
+  }
+
+  .height {
+    height: 70vh;
   }
 
   .grey {
@@ -72,6 +96,10 @@
   .bold {
     font-family: 'SourceSansPro-Bold';
   }
+
+  .borderbottom {
+    border-bottom: 1px solid black; 
+  }
   
   .border {
     border-top: 1px solid black;
@@ -79,7 +107,63 @@
 
   .icon {
     fill: #cfcfcf;
-    
+  }
+
+  .tr {
+    height: 70px;
+  }
+
+  .col1 {
+    width: 50px;
+  }
+
+  .col-2 {
+    width: 200px;
+  }
+
+  .navbar-ow{
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', regular;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category {
+    text-transform: uppercase;
+    margin-bottom: 50px !important;
+  }
+
+  .produtos{
+    font-size: 16px;
+    color: #909090;
+    margin-right: 20px;
+    font-family: "SourceSansPro-Black";
+  }
+
+  .elementos-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .btn-buy {
+    background-color: #8e36b7;
+    font-family: 'SourceSansPro-Regular';
+    width: 300px;
+  }
+
+  .cursor {
+    cursor: pointer;
   }
 
 </style>

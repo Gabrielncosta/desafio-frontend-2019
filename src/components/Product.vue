@@ -39,8 +39,6 @@ import router from '../router'
           if(this.produto.quantity) {
             
             let index = this.procurarIndice(productsJson, 'name', this.produto.name);
-            
-            console.log(index);
             productsJson[index].quantity += 1;
           }
           else {
@@ -61,10 +59,10 @@ import router from '../router'
         },
         procurarIndice(arraySearch, atributo, valor){
           for(var i in arraySearch){
-              var row = arraySearch[i];
-              if(row[atributo]==valor){
-                return i;
-              }
+            var row = arraySearch[i];
+            if(row[atributo]==valor){
+              return i;
+            }
           }
         }
       }

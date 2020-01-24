@@ -1,9 +1,9 @@
 <template>
-  <tr style="border-bottom: 1px solid black;">
+  <tr class="borderbottom">
     <th scope="row">
-      <Garbage class="icon"/>
+      <Garbage @click="deleteProduct" class="icon"/>
       </th>
-    <td>
+    <td class="padding">
       <p class="purple bold">Eletrônicos</p>
       <p class="bold">{{ list.name }}</p>
     </td>
@@ -12,19 +12,22 @@
         <div class="input-group-prepend">
           <span @click="subtraction" class="input-group-text btnwhite" id="basic-addon1">-</span>
         </div>
-        <input v-model="quantity" @keypress="isNumber($event)" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        <input v-model="quantity" @keypress="isNumber($event)" type="text" class="form-control inputform" aria-label="Username" aria-describedby="basic-addon1">
          <div class="input-group-prepend">
           <span @click="add" class="input-group-text btnwhite" id="basic-addon1">+</span>
         </div>
       </div>
     </td>
-    <td>R$ {{ list.price }} à vista <br> ou 10x R$ {{ parseInt(list.price) / 10 }} </td>
-    <td>@mdo</td>
+    <td><span class="bold"> R$ {{ list.price }} </span> à vista <br> ou 10x R$ {{ format(list.price) }} </td>
+    <td><span class="bold"> R$ {{ list.price }} </span>à vista </td>
   </tr>
+
 </template>
 
 <script>
+  
   import Garbage from '../assets/svg/garbage.svg';
+  
 
   export default {
     name: 'Table',
@@ -37,6 +40,7 @@
         quantity: this.list.quantity
       }
     },
+    
   /*   mounted() {
       this.quantity = this.list.quantity;
     }, */
@@ -86,20 +90,61 @@
       update() {
         this.$root.$emit('update');
       },
+      format(value) {
+      },
+      deleteProduct() {
+        this.quantity = 0;
+        let productsJson = [];
+        productsJson = JSON.parse(localStorage.getItem('produtos'));
+        let index = this.procurarIndice(productsJson, 'name', this.list.name);
+        productsJson[index].quantity = this.quantity;
+        this.saveProducts(productsJson);
+        this.update();
+      },
     }
+    
   }
      
 </script>
 
 
 <style lang="scss" scoped>
+
+  td {
+    font-family: 'SourceSansPro-Regular';
+  }
+
   .icon {
     fill: #cfcfcf;
+    cursor: pointer;
   }
 
   .btnwhite {
     background-color: white;
     cursor: pointer;
   }
+
+  .padding {
+    padding: 25px 0;
+  }
+
+  .borderbottom {
+    border-bottom: 1px solid black;
+  }
+
+  .inputform {
+    font-family: 'SourceSansPro-Bold';
+  }
+
+  .purple {
+    color: #8e36b7;
+    text-align: start;
+  }
+
+  .bold {
+    font-family: 'SourceSansPro-Bold';
+    text-align: start;
+  }
+
 
 </style>

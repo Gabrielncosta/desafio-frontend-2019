@@ -23,7 +23,7 @@
     justify-content: center;
     font-family: 'Nunito', regular;
     background-color: #bbbbbb;
-    height: 20vh;
+    height: 15vh;
   }
 
   .container{
