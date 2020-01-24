@@ -35,13 +35,22 @@ import router from '../router'
             }
           }
         
-
-          productsJson.push(this.produto);
+        
+          if(this.produto.quantity) {
+            
+            let index = this.procurarIndice(productsJson, 'name', this.produto.name);
+            
+            console.log(index);
+            productsJson[index].quantity += 1;
+          }
+          else {
+            this.produto.quantity = 1;
+            productsJson.push(this.produto);
+          }
+          
           this.saveProducts(productsJson);
 
           this.update();
-          /* this.productsJson.unshift({ name: this.name, price: this.price });
-          localStorage.setItem('produtos', JSON.stringify(this.productsJson)); */
         },
         saveProducts(products) {
           const parsed = JSON.stringify(products);
@@ -49,8 +58,15 @@ import router from '../router'
         },
         update() {
           this.$root.$emit('update');
+        },
+        procurarIndice(arraySearch, atributo, valor){
+          for(var i in arraySearch){
+              var row = arraySearch[i];
+              if(row[atributo]==valor){
+                return i;
+              }
+          }
         }
-
       }
   }
 </script>

@@ -29,6 +29,14 @@
         },
         RouteMain() {
           this.$router.push('/');
+        },
+        somaCarrinho(products) {
+          let count = 0;
+          for(let i in products) {
+            count += products[i].quantity; 
+            console.log(products[i].quantity);
+          }
+          return count;
         }
       },
       components: {
@@ -37,12 +45,11 @@
       mounted() {
         if (localStorage.produtos) {
           let products = JSON.parse(localStorage.produtos);
-          this.cartNumber = products.length;
-          console.log(products);
+          this.cartNumber = this.somaCarrinho(products)
         }
         this.$root.$on('update', () => {
           let products = JSON.parse(localStorage.produtos);
-          this.cartNumber = products.length;
+          this.cartNumber = this.somaCarrinho(products)
           
         })
       },

@@ -1,5 +1,21 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home">
+    <Header/>
+    <SignUp/>
+    <Footer/>
   </div>
 </template>
+
+<script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import SignUp from '@/components/SignUp.vue'
+export default {
+  name: 'Carrinho',
+  components: {
+    Header,
+    Footer,
+    SignUp
+  }
+}
+</script>
