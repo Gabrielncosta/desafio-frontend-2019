@@ -84,10 +84,6 @@
     color: #8e36b7;
   }
 
-  .height {
-    height: 70vh;
-  }
-
   .grey {
     color: #434343;
   }
